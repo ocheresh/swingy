@@ -25,8 +25,8 @@ public class Runner {
         Data.connect();
 
         if (args[0].contentEquals("gui")) {
-//            new MainFrame();
-            new SelectFrame();
+            new MainFrame();
+//            new SelectFrame();
 //            new GameFrame();
         }
         else if (args[0].contentEquals("console")) {

@@ -183,7 +183,6 @@ public class Game {
                 System.out.println("End game end map");
                 End_game = true;
                 info_of_move += "\nEnd game and map. You win. Congratulation!!!!";
-//                System.exit(0);
             }
         }
     }
@@ -200,7 +199,6 @@ public class Game {
                 System.out.println("End game end map");
                 End_game = true;
                 info_of_move += "\nEnd game and map. You win. Congratulation!!!!";
-//                System.exit(0);
             }
         }
     }
@@ -217,7 +215,6 @@ public class Game {
                 System.out.println("End game and map. You win. Congratulation!!!!");
                 End_game = true;
                 info_of_move += "\nEnd game and map. You win. Congratulation!!!!";
-//                System.exit(0);
             }
         }
     }
@@ -240,13 +237,15 @@ public class Game {
 
     public boolean not_end() {
         if ((position[0] == 0) || (position[0] == (size_square - 1))) {
-            System.out.println("End Game!!!1");
+//            System.out.println("End Game!!!1");
+            hero.setExperience(hero.getExperience() + 500);
             End_game = true;
-            return (false);
-        } else if ((position[1] == 0) || (position[1] == (size_square - 1))) {
+            return (false); }
+        else if ((position[1] == 0) || (position[1] == (size_square - 1))) {
             info_of_game += "\n position[0][1]" + Integer.toString(position[0]) + "  " + Integer.toString(position[1]);
             End_game = true;
-            System.out.println("End Game!!!2");
+            hero.setExperience(hero.getExperience() + 500);
+//            System.out.println("End Game!!!2");
             return (false);
         }
         return (true);
@@ -272,7 +271,6 @@ public class Game {
             else {
                 End_game = true;
                 info_of_move += "\nYou lose fight. Game over!!!";
-//                System.exit(0);
             }
         }
         else {
@@ -347,7 +345,8 @@ public class Game {
 
     public void incr_level()
     {
-        if (hero.getExperience() >= ((hero.getLevel() + 1) * 1000 + (int)(Math.pow((hero.getLevel() - 1), 2.0)) * 450)) {
+        if (hero.getExperience() >= ((hero.getLevel() + 1) * 1000 + (int)(Math.pow((hero.getLevel() - 1), 2.0)) * 450) && hero.getLevel() <= 6)
+        {
             hero.setLevel(hero.getLevel() + 1);
             info_of_move += "\nLevel increase";
         }

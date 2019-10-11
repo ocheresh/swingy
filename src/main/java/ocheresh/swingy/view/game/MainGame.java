@@ -11,4 +11,6 @@ public interface MainGame {
     void runPressed();
 
     void add_artifac_pres();
+
+    void end_game();
 }

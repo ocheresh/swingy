@@ -47,4 +47,9 @@ public class GameConsole implements MainGame{
     public void add_artifac_pres() {
 
     }
+
+    @Override
+    public void end_game() {
+
+    }
 }

@@ -39,4 +39,6 @@ public class GameController {
     {
         game_view.add_artifac_pres();
     }
+
+    public void end_game() { game_view.end_game(); }
 }

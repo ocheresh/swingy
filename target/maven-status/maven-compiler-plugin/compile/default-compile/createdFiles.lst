@@ -2,6 +2,7 @@ ocheresh/swingy/view/select/SelectFrame$2.class
 ocheresh/swingy/view/game/GameFrame$2.class
 ocheresh/swingy/view/select/SelectConsole.class
 ocheresh/swingy/view/game/GameConsole.class
+ocheresh/swingy/view/create/CreateFrame$3.class
 ocheresh/swingy/controller/MainController.class
 ocheresh/swingy/data/Data.class
 ocheresh/swingy/model/arifacts/Artifact.class
@@ -19,6 +20,7 @@ ocheresh/swingy/view/game/GameFrame$3.class
 ocheresh/swingy/view/select/SelectFrame$3.class
 ocheresh/swingy/model/arifacts/ArtifactsFactory.class
 ocheresh/swingy/view/select/SelectFrame.class
+ocheresh/swingy/view/create/CreateFrame$4.class
 ocheresh/swingy/view/game/GameFrame.class
 ocheresh/swingy/model/characthers/VillainType.class
 ocheresh/swingy/view/create/CreateFrame$1.class

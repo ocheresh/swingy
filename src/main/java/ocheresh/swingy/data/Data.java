@@ -24,7 +24,7 @@ public class Data {
         {
             Class.forName("org.sqlite.JDBC");
             co = DriverManager.getConnection("jdbc:sqlite:Heroes.db");
-            System.out.println("Good.");
+//            System.out.println("Good.");
 
             statmt = co.createStatement();
             resSet = statmt.executeQuery("SELECT * FROM heroes");
@@ -47,7 +47,7 @@ public class Data {
             statement.setObject(6, hero.getArmor().getName());
             statement.setObject(7, hero.getHelm().getName());
             statement.executeUpdate();
-
+            System.out.println("add new hero");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -148,7 +148,7 @@ public class Data {
             for (String key : map.keySet())
                 System.out.println(key + " - " + map.get(key));
             System.out.println();
-            System.out.println("Таблица выведена");
+//            System.out.println("Таблица выведена");
         }
         catch (Exception e)
         {
@@ -163,7 +163,7 @@ public class Data {
             statmt.close();
             resSet.close();
 
-            System.out.println("Соединения закрыты");
+//            System.out.println("Соединения закрыты");
         }
         catch (Exception e)
         {
