@@ -5,6 +5,7 @@ package ocheresh.swingy.model.characthers;
 ////@Builder
 public class Villain extends Character {
 
+
     public static class Builder {
 
         private Villain villain;
@@ -30,6 +31,16 @@ public class Villain extends Character {
         {
             return villain;
         }
+    }
+
+    @Override
+    public String getenumClass() {
+        int temp = this.getAttack();
+        if (temp == 20)
+            return "BULLY";
+        else if (temp == 10)
+            return "EVIL";
+        return "DARK LORD";
     }
 
 }

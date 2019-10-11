@@ -28,6 +28,9 @@ public class Game {
     private static String info_of_move = "";
     private static String info_of_hero = "";
     private boolean checks_buton = true;
+    private boolean End_game = false;
+
+    public boolean getEnd_game() { return End_game; }
 
     public String getInfo_of_hero() {
         info_of_hero = "";
@@ -178,8 +181,9 @@ public class Game {
             if (this.not_end() == false)
             {
                 System.out.println("End game end map");
-                info_of_move += "\nEnd game end map";
-                System.exit(0);
+                End_game = true;
+                info_of_move += "\nEnd game and map. You win. Congratulation!!!!";
+//                System.exit(0);
             }
         }
     }
@@ -194,8 +198,9 @@ public class Game {
             if (this.not_end() == false)
             {
                 System.out.println("End game end map");
-                info_of_move += "\nEnd game end map";
-                System.exit(0);
+                End_game = true;
+                info_of_move += "\nEnd game and map. You win. Congratulation!!!!";
+//                System.exit(0);
             }
         }
     }
@@ -209,9 +214,10 @@ public class Game {
             prev_position[1]--;
             if (this.not_end() == false)
             {
-                System.out.println("End game end map");
-                info_of_move += "\nEnd game end map";
-                System.exit(0);
+                System.out.println("End game and map. You win. Congratulation!!!!");
+                End_game = true;
+                info_of_move += "\nEnd game and map. You win. Congratulation!!!!";
+//                System.exit(0);
             }
         }
     }
@@ -226,8 +232,8 @@ public class Game {
             if (this.not_end() == false)
             {
                 System.out.println("End game end map");
-                info_of_move += "\nEnd game end map";
-                System.exit(0);
+                End_game = true;
+                info_of_move += "\nEnd game and map. You win. Congratulation!!!!";
             }
         }
     }
@@ -235,9 +241,11 @@ public class Game {
     public boolean not_end() {
         if ((position[0] == 0) || (position[0] == (size_square - 1))) {
             System.out.println("End Game!!!1");
+            End_game = true;
             return (false);
         } else if ((position[1] == 0) || (position[1] == (size_square - 1))) {
             info_of_game += "\n position[0][1]" + Integer.toString(position[0]) + "  " + Integer.toString(position[1]);
+            End_game = true;
             System.out.println("End Game!!!2");
             return (false);
         }
@@ -262,7 +270,9 @@ public class Game {
                 prev_position[1] = position[1];
             }
             else {
-                System.exit(0);
+                End_game = true;
+                info_of_move += "\nYou lose fight. Game over!!!";
+//                System.exit(0);
             }
         }
         else {
@@ -285,25 +295,18 @@ public class Game {
                     info_of_move += "\nHero attack enemy. Enemy attack hero.";
                     monster.setDefence((monster.getDefence() - hero.getAttack()) >= 0 ? (monster.getDefence() - hero.getAttack()):0);
                     hero.setDamage(monster.getAttack());
-                    info_of_move += "Attack monster: " + monster.getAttack();
-//                    info_of_move += "\nHero hit points: " + hero.getHit_points() + "\ndefence: " + hero.getDefence() + "\narmor:" + hero.getArmor().getAttack()
-//                            + "\nhelm:" + hero.getHelm().getAttack()
-//                            + " Monster hit points: " + monster.getDefence();
+                    info_of_move += "\n" + monster.getenumClass() + " attack hero: " + monster.getAttack();
+                    info_of_move += "\n" + hero.getenumClass() + " attack monster: " + hero.getAttack();
                     break;
                 case 1:
                     info_of_move += "\nEnemy attack hero.";
                     hero.setDamage(monster.getAttack());
-                    info_of_move += "Attack monster: " + monster.getAttack();
-//                    info_of_move += "\nHero hit points: " + hero.getHit_points() + "\ndefence: " + hero.getDefence() + "\narmor:" + hero.getArmor().getAttack()
-//                            + "\nhelm:" + hero.getHelm().getAttack()
-//                            + " Monster hit points: " + monster.getDefence();
+                    info_of_move += "\n" + monster.getenumClass() + " attack hero: " + monster.getAttack();
                     break;
                 case 2:
                     info_of_move += "\nHero attack enemy.";
                     monster.setDefence((monster.getDefence() - hero.getAttack()) >= 0 ? (monster.getDefence() - hero.getAttack()):0);
-//                    info_of_move += "\nHero hit points: " + hero.getHit_points() + "\ndefence: " + hero.getDefence() + "\narmor:" + hero.getArmor().getAttack()
-//                            + "\nhelm:" + hero.getHelm().getAttack()
-//                            + " Monster hit points: " + monster.getDefence();
+                    info_of_move += "\n" + hero.getenumClass() + " attack monster: " + hero.getAttack();
                     break;
             }
         }
@@ -317,12 +320,12 @@ public class Game {
                 info_of_move += "\nEnd ame end map";
                 sleep_on(2);
                 Data.closeDB();
-                System.exit(0);
             }
             info_of_move += "\nNow you can move. But you must be very carefull!!!";
             return (true);
         }
         info_of_move += "\nHero is lose fight!!!";
+        End_game = true;
         return (false);
     }
 

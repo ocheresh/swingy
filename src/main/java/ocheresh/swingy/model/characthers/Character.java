@@ -8,4 +8,5 @@ import lombok.Setter;
 public abstract class Character {
     private int attack;
     private int defence;
+    public abstract String getenumClass();
 }

@@ -37,6 +37,7 @@ public class SuperHero extends Character {
                 "\nDefence: " + this.getDefence());
     }
 
+    @Override
     public String getenumClass()
     {
         if (enumSuperHero == EnumSuperHero.ELF)

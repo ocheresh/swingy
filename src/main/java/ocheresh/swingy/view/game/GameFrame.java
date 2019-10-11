@@ -168,6 +168,12 @@ public class GameFrame extends JFrame implements MainGame {
         gamecontroller.getGame().print_map();
         game_info.setText(gamecontroller.getGame().getInfo_of_game());
         move_info.setText(gamecontroller.getGame().getInfo_of_move());
+        if (gamecontroller.getGame().getEnd_game() == true) {
+//            System.out.println("op");
+            JOptionPane.showMessageDialog(this, "End game", "Inform", JOptionPane.DEFAULT_OPTION);
+            System.exit(0);
+        }
+
     }
 
     @Override
@@ -180,6 +186,11 @@ public class GameFrame extends JFrame implements MainGame {
             System.out.println(gamecontroller.getGame().getInfo_of_move());
             JOptionPane.showMessageDialog( this, "You LOSE", "Result of fight.", JOptionPane.DEFAULT_OPTION );
             Data.closeDB();
+            if (gamecontroller.getGame().getEnd_game() == true) {
+//            System.out.println("op");
+                JOptionPane.showMessageDialog(this, "End game", "Inform", JOptionPane.DEFAULT_OPTION);
+                System.exit(0);
+            }
             System.exit(0);
         }
         else {
@@ -203,6 +214,11 @@ public class GameFrame extends JFrame implements MainGame {
         gamecontroller.getGame().print_map();
         game_info.setText(gamecontroller.getGame().getInfo_of_game());
         move_info.setText(gamecontroller.getGame().getInfo_of_move());
+        if (gamecontroller.getGame().getEnd_game() == true) {
+//            System.out.println("op");
+            JOptionPane.showMessageDialog(this, "End game", "Inform", JOptionPane.DEFAULT_OPTION);
+            System.exit(0);
+        }
     }
 
     @Override
