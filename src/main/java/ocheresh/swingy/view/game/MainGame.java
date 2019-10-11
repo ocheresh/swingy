@@ -13,4 +13,6 @@ public interface MainGame {
     void add_artifac_pres();
 
     void end_game();
+
+    void cheat_pressed();
 }

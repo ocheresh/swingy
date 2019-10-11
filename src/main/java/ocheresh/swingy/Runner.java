@@ -26,8 +26,6 @@ public class Runner {
 
         if (args[0].contentEquals("gui")) {
             new MainFrame();
-//            new SelectFrame();
-//            new GameFrame();
         }
         else if (args[0].contentEquals("console")) {
             new MainConsole();

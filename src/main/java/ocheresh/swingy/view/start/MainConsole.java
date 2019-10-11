@@ -2,11 +2,15 @@ package ocheresh.swingy.view.start;
 
 import ocheresh.swingy.controller.MainController;
 import ocheresh.swingy.data.Data;
+import ocheresh.swingy.view.ConsloeView;
+import ocheresh.swingy.view.create.CreateConsole;
+import ocheresh.swingy.view.game.MainGame;
+import ocheresh.swingy.view.select.SelectConsole;
 
 import javax.swing.*;
 import java.util.Scanner;
 
-public class MainConsole extends JFrame implements MainView {
+public class MainConsole extends ConsloeView implements MainView {
 
     private Scanner sc;
     private MainController mainController;
@@ -14,6 +18,7 @@ public class MainConsole extends JFrame implements MainView {
     public MainConsole()
     {
         mainController = new MainController(this);
+        clearScreen();
         System.out.println("Welcome to SWINGY game \n" +
                 "If you want to start you must Enter:\n"+
                 "1. Create.\n" +
@@ -29,28 +34,25 @@ public class MainConsole extends JFrame implements MainView {
 
         if (str.equalsIgnoreCase("Select"))
         {
-            System.out.println("Select");
+            mainController.selectHeroPressed();
         }
         else if (str.equalsIgnoreCase("Create"))
         {
-            System.out.println("Create");
+            mainController.createHeroPressed();
         }
         else if (str.equalsIgnoreCase("Switch"))
         {
-            System.out.println("Switch");
             mainController.switchPressed();
         }
         else{
             System.out.println("Somethig enter wrong. Please repeat.");
             read();
+            clearScreen();
         }
     }
 
     @Override
-    public void createHero()
-    {
-
-    }
+    public void createHero() { new CreateConsole(); }
 
     @Override
     public void switchView()
@@ -59,8 +61,5 @@ public class MainConsole extends JFrame implements MainView {
     }
 
     @Override
-    public void selectHero()
-    {
-
-    }
+    public void selectHero() { new SelectConsole(); }
 }

@@ -133,10 +133,11 @@ public class GameFrame extends JFrame implements MainGame {
         public void itemStateChanged(ItemEvent itemEvent) {
             int state = itemEvent.getStateChange();
             if (state == ItemEvent.SELECTED) {
-                gamecontroller.getGame().print_map_cheat();
-                move_info.setText(gamecontroller.getGame().getInfo_of_move());
-                gamecontroller.getGame().setInfo_of_move("");
-                sound_on("./src/main/java/sounds/Male Laugh Short-SoundBible.com-1728242766.wav");
+                gamecontroller.cheat_pressed();
+//                gamecontroller.getGame().print_map_cheat();
+//                move_info.setText(gamecontroller.getGame().getInfo_of_move());
+//                gamecontroller.getGame().setInfo_of_move("");
+//                sound_on("./src/main/java/sounds/Male Laugh Short-SoundBible.com-1728242766.wav");
             } else {
                 gamecontroller.getGame().print_map();
                 move_info.setText("");
@@ -197,6 +198,10 @@ public class GameFrame extends JFrame implements MainGame {
             gamecontroller.getGame().print_map();
             game_info.setText(gamecontroller.getGame().getInfo_of_game());
             move_info.setText(gamecontroller.getGame().getInfo_of_move());
+            if (gamecontroller.getGame().getEnd_game() == true) {
+                JOptionPane.showMessageDialog(this, "End game", "Inform", JOptionPane.DEFAULT_OPTION);
+                gamecontroller.end_game();
+            }
         }
     }
 
@@ -218,7 +223,7 @@ public class GameFrame extends JFrame implements MainGame {
     @Override
     public void add_artifac_pres() {
         int luck = (int)(Math.random() * 10 % 2);
-        System.out.println("We go to function add: " + luck);
+//        System.out.println("We go to function add: " + luck);
         if (luck == 0) {
             int n = JOptionPane.showConfirmDialog(
                     this, "Would you like to take artifact?",
@@ -237,6 +242,14 @@ public class GameFrame extends JFrame implements MainGame {
         Data.closeDB();
         this.dispose();
         System.exit(0);
+    }
+
+    @Override
+    public void cheat_pressed() {
+        gamecontroller.getGame().print_map_cheat();
+        move_info.setText(gamecontroller.getGame().getInfo_of_move());
+        gamecontroller.getGame().setInfo_of_move("");
+        sound_on("./src/main/java/sounds/Male Laugh Short-SoundBible.com-1728242766.wav");
     }
 
 

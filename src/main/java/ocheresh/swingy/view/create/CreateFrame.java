@@ -26,6 +26,7 @@ public class CreateFrame extends JFrame implements MainCreate {
     private final String[] datalist = {"Knight", "Elf"};
     private JButton create;
     private JButton back;
+    private JButton switchh;
     private JLabel name;
     private JLabel stats;
     final JList<String> list;
@@ -47,6 +48,7 @@ public class CreateFrame extends JFrame implements MainCreate {
         stats = new JLabel("Stats: ");
         set_name = new JLabel("Please enter name of the hero: (max 250 ch)");
         textArea = new JTextField();
+        switchh = new JButton("Switch");
 
         list = new JList<String>(datalist);
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -62,6 +64,7 @@ public class CreateFrame extends JFrame implements MainCreate {
         Box box2 = Box.createHorizontalBox();
         box2.add(back);
         box2.add(create);
+        box2.add(switchh);
 
         Box box3 = Box.createVerticalBox();
         box3.add(set_name);
@@ -76,6 +79,13 @@ public class CreateFrame extends JFrame implements MainCreate {
             createController.backpressed();
         }
     });
+
+        switchh.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                createController.switch_pressed();
+            }
+        });
 
         create.addActionListener(new ActionListener() {
             @Override
@@ -132,6 +142,13 @@ public class CreateFrame extends JFrame implements MainCreate {
     {
         this.setVisible(false);
         new MainFrame();
+    }
+
+    @Override
+    public void switch_press() {
+        this.setVisible(false);
+        this.dispose();
+        new CreateConsole();
     }
 
     @Override

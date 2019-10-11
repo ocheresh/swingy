@@ -47,7 +47,7 @@ public class Data {
             statement.setObject(6, hero.getArmor().getName());
             statement.setObject(7, hero.getHelm().getName());
             statement.executeUpdate();
-            System.out.println("add new hero");
+//            System.out.println("add new hero");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -91,6 +91,24 @@ public class Data {
         return (temp);
     }
 
+    public static boolean check_name_of_shero(String name)
+    {
+        try {
+            statmt = co.createStatement();
+            resSet = statmt.executeQuery("SELECT * FROM heroes");
+
+            while(resSet.next())
+            {
+               if (name.equals(resSet.getString("Name")))
+                   return (true);
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return (false);
+    }
 
     public static SuperHero getSuperHero(String heroName)
     {
@@ -126,27 +144,13 @@ public class Data {
         return ((SuperHero)(temp.get(heroName)));
     }
 
-//    public static void print(Map<String, String> map)
-//    {
-//        try {
-//            for (String key : map.keySet())
-//                System.out.println(key + " - " + map.get(key));
-//            System.out.println();
-//
-//            System.out.println("Таблица выведена");
-//        }
-//        catch (Exception e)
-//        {
-//            System.out.println("Error: " + e.getMessage());
-//        }
-//    }
-
     public static void print()
     {
         Map <String, String> map = Data.getinfo();
         try {
-            for (String key : map.keySet())
-                System.out.println(key + " - " + map.get(key));
+            for (String key : map.keySet()) {
+                System.out.println("Name: " + key + " \n" + map.get(key));
+            }
             System.out.println();
 //            System.out.println("Таблица выведена");
         }

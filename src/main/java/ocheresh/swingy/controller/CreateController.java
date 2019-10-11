@@ -11,4 +11,6 @@ public class CreateController {
     public void createHeroPressed() { mainCreate.create_newHero(); }
 
     public void backpressed() {mainCreate.back();}
+
+    public void switch_pressed() { mainCreate.switch_press(); }
 }

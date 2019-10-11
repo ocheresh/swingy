@@ -41,4 +41,6 @@ public class GameController {
     }
 
     public void end_game() { game_view.end_game(); }
+
+    public void cheat_pressed() {game_view.cheat_pressed();}
 }

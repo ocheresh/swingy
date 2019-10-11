@@ -146,12 +146,10 @@ public class Game {
         for (int i = 0; i < size_square; i++) {
             if (i != (size_square / 2)) {
                 int random = (int) (Math.random() * 100 % size_square);
-                System.out.println("Random: " + random);
                 map[i][random] = false;
             }
         }
         info_of_game += "\nSet position x: " + Integer.toString(position[0]) + "  y: " + Integer.toString(position[1]);
-        System.out.println("Hero :" + size);
     }
 
     public void moves_command(String str) {
@@ -165,8 +163,8 @@ public class Game {
             } else if (str.equalsIgnoreCase("West")) {
                 move_west();
             }
-            else
-                System.out.println("Error in Game.moves_command 1");
+//            else
+//                System.out.println("Error in Game.moves_command 1");
             print_map();
         }
     }
@@ -180,7 +178,7 @@ public class Game {
             prev_position[0]--;
             if (this.not_end() == false)
             {
-                System.out.println("End game end map");
+//                System.out.println("End game end map");
                 End_game = true;
                 info_of_move += "\nEnd game and map. You win. Congratulation!!!!";
             }
@@ -196,7 +194,7 @@ public class Game {
             prev_position[0]++;
             if (this.not_end() == false)
             {
-                System.out.println("End game end map");
+//                System.out.println("End game end map");
                 End_game = true;
                 info_of_move += "\nEnd game and map. You win. Congratulation!!!!";
             }
@@ -212,7 +210,7 @@ public class Game {
             prev_position[1]--;
             if (this.not_end() == false)
             {
-                System.out.println("End game and map. You win. Congratulation!!!!");
+//                System.out.println("End game and map. You win. Congratulation!!!!");
                 End_game = true;
                 info_of_move += "\nEnd game and map. You win. Congratulation!!!!";
             }
@@ -228,7 +226,7 @@ public class Game {
             prev_position[1]++;
             if (this.not_end() == false)
             {
-                System.out.println("End game end map");
+//                System.out.println("End game end map");
                 End_game = true;
                 info_of_move += "\nEnd game and map. You win. Congratulation!!!!";
             }
