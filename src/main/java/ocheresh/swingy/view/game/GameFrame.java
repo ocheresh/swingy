@@ -1,12 +1,8 @@
 package ocheresh.swingy.view.game;
 
-import lombok.NonNull;
 import ocheresh.swingy.controller.GameController;
 import ocheresh.swingy.data.Data;
 import ocheresh.swingy.data.ScanInfo;
-import ocheresh.swingy.model.Game;
-import ocheresh.swingy.model.characthers.SuperHero;
-
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -135,10 +131,6 @@ public class GameFrame extends JFrame implements MainGame {
             int state = itemEvent.getStateChange();
             if (state == ItemEvent.SELECTED) {
                 gamecontroller.cheat_pressed();
-//                gamecontroller.getGame().print_map_cheat();
-//                move_info.setText(gamecontroller.getGame().getInfo_of_move());
-//                gamecontroller.getGame().setInfo_of_move("");
-//                sound_on("./src/main/java/sounds/Male Laugh Short-SoundBible.com-1728242766.wav");
             } else {
                 gamecontroller.getGame().print_map();
                 move_info.setText("");
@@ -172,7 +164,7 @@ public class GameFrame extends JFrame implements MainGame {
         if (gamecontroller.getGame().getEnd_game() == true) {
             JOptionPane.showMessageDialog(this, "End game", "Inform", JOptionPane.DEFAULT_OPTION);
             Data.deleteSHero(gamecontroller.getGame().getSuperHero().getName());
-            Data.addSHero(gamecontroller.getGame().getSuperHero()); //добавляет героя без проблем
+            Data.addSHero(gamecontroller.getGame().getSuperHero());
             gamecontroller.end_game();
         }
 
@@ -226,7 +218,6 @@ public class GameFrame extends JFrame implements MainGame {
     @Override
     public void add_artifac_pres() {
         int luck = (int)(Math.random() * 10 % 2);
-//        System.out.println("We go to function add: " + luck);
         if (luck == 0) {
             int n = JOptionPane.showConfirmDialog(
                     this, "Would you like to take artifact?",

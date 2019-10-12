@@ -286,9 +286,10 @@ public class Game {
             info_of_move += "\nHero is win fight!!!";
             if (this.not_end() == false)
             {
-                info_of_move += "\nEnd ame end map";
+                info_of_move += "\nEnd game end map";
+                Data.deleteSHero(hero.getName());
+                Data.addSHero(hero);
                 sleep_on(2);
-                Data.closeDB();
             }
             info_of_move += "\nNow you can move. But you must be very carefull!!!";
             return (true);

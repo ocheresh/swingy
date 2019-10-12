@@ -98,7 +98,7 @@ public class GameConsole extends ConsloeView implements MainGame{
             clearScreen();
             System.out.println("You win. Stats of hero save.");
             Data.deleteSHero(gamecontroller.getGame().getSuperHero().getName());
-            Data.addSHero(gamecontroller.getGame().getSuperHero()); //добавляет героя без проблем
+            Data.addSHero(gamecontroller.getGame().getSuperHero());
             inform_player();
             gamecontroller.end_game();
         }
