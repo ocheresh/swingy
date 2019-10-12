@@ -1,6 +1,5 @@
 package ocheresh.swingy.controller;
 
-
 import ocheresh.swingy.view.select.MainSelect;
 
 public class SelectController {

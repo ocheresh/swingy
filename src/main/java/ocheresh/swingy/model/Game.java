@@ -1,18 +1,10 @@
 package ocheresh.swingy.model;
 
-import lombok.Builder;
-//import lombok.Data;
-import lombok.NonNull;
 import ocheresh.swingy.data.Data;
 import ocheresh.swingy.model.arifacts.ArtifactsFactory;
 import ocheresh.swingy.model.characthers.Character;
 import ocheresh.swingy.model.characthers.CharacthersFactory;
 import ocheresh.swingy.model.characthers.SuperHero;
-import ocheresh.swingy.model.characthers.Villain;
-
-import java.util.Date;
-import java.util.Scanner;
-
 
 public class Game {
 
@@ -51,26 +43,16 @@ public class Game {
         return info_of_hero;
     }
 
-    public void setInfo_of_hero(String info_of_hero) {
-        Game.info_of_hero = info_of_hero;
-    }
-
     public String getInfo_of_move() { return info_of_move; }
     public void setInfo_of_move(String info_of_move) { Game.info_of_move = info_of_move; }
-
     public boolean getChecks_buton() {
         return checks_buton;
     }
     public void setChecks_buton(boolean checks_buton) { this.checks_buton = checks_buton; }
-
-
     public String getInfo_of_game() {
         return info_of_game;
     }
-
-    public Game() {
-    }
-
+    public Game() { }
     public static Game getInit()
     {
         if (game == null) {
@@ -78,7 +60,6 @@ public class Game {
         }
         return game;
     }
-
     public static void setSuperHero(SuperHero superHero)
     {
         if (hero == null) {
@@ -99,7 +80,6 @@ public class Game {
             info_of_game += "\nMap create.\n";
         }
     }
-
     public void print_map()
     {
         info_of_game = "";
@@ -115,7 +95,6 @@ public class Game {
             info_of_game += "\n";
         }
     }
-
     public void print_map_cheat()
     {
         info_of_game = "";
@@ -163,8 +142,6 @@ public class Game {
             } else if (str.equalsIgnoreCase("West")) {
                 move_west();
             }
-//            else
-//                System.out.println("Error in Game.moves_command 1");
             print_map();
         }
     }
@@ -178,7 +155,6 @@ public class Game {
             prev_position[0]--;
             if (this.not_end() == false)
             {
-//                System.out.println("End game end map");
                 End_game = true;
                 info_of_move += "\nEnd game and map. You win. Congratulation!!!!";
             }
@@ -194,7 +170,6 @@ public class Game {
             prev_position[0]++;
             if (this.not_end() == false)
             {
-//                System.out.println("End game end map");
                 End_game = true;
                 info_of_move += "\nEnd game and map. You win. Congratulation!!!!";
             }
@@ -210,7 +185,6 @@ public class Game {
             prev_position[1]--;
             if (this.not_end() == false)
             {
-//                System.out.println("End game and map. You win. Congratulation!!!!");
                 End_game = true;
                 info_of_move += "\nEnd game and map. You win. Congratulation!!!!";
             }
@@ -226,7 +200,6 @@ public class Game {
             prev_position[1]++;
             if (this.not_end() == false)
             {
-//                System.out.println("End game end map");
                 End_game = true;
                 info_of_move += "\nEnd game and map. You win. Congratulation!!!!";
             }
@@ -235,7 +208,6 @@ public class Game {
 
     public boolean not_end() {
         if ((position[0] == 0) || (position[0] == (size_square - 1))) {
-//            System.out.println("End Game!!!1");
             hero.setExperience(hero.getExperience() + 500);
             incr_level();
             End_game = true;

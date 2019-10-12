@@ -1,8 +1,5 @@
 package ocheresh.swingy.model.characthers;
 
-//import lombok.Builder;
-//
-////@Builder
 public class Villain extends Character {
 
 

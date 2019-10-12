@@ -1,17 +1,13 @@
 package ocheresh.swingy.data;
 
 import lombok.NonNull;
-import ocheresh.swingy.model.arifacts.Artifact;
 import ocheresh.swingy.model.arifacts.ArtifactsFactory;
 import ocheresh.swingy.model.characthers.CharacthersFactory;
-import ocheresh.swingy.model.characthers.EnumSuperHero;
 import ocheresh.swingy.model.characthers.SuperHero;
-
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
-//https://www.youtube.com/watch?v=iyXYwNQC6ag
 
 public class Data {
     public static Statement statmt;
@@ -56,11 +52,8 @@ public class Data {
         try {
             statmt = co.createStatement();
             resSet = statmt.executeQuery("SELECT * FROM heroes");
-
             while(resSet.next())
-            {
                 t++;
-            }
         }
         catch (Exception e)
         {

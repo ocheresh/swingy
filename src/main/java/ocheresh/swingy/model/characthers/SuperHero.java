@@ -27,16 +27,6 @@ public class SuperHero extends Character {
     int experience;
     int hit_points;
 
-    public String getInfo()
-    {
-        return ("Name: " + this.getName() +
-                "\nClass: Hero" +
-                "\nLevel:" + this.getLevel() +
-                "\nExperience: " + this.getExperience() +
-                "\nAttack: " + this.getAttack() +
-                "\nDefence: " + this.getDefence());
-    }
-
     @Override
     public String getenumClass()
     {
@@ -74,14 +64,6 @@ public class SuperHero extends Character {
             }
         }
     }
-
-//    public String getStrWeapon()
-//    {
-//        if (weapon.getName() == WeaponType.LONG_BOW)
-//            return "weapon";
-//
-//        return null;
-//    }
 
     public static class Builder {
 

@@ -1,7 +1,6 @@
 package ocheresh.swingy.controller;
 
 import ocheresh.swingy.view.start.MainView;
-import ocheresh.swingy.controller.*;
 
 public class MainController {
 
