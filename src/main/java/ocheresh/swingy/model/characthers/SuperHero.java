@@ -1,16 +1,16 @@
 package ocheresh.swingy.model.characthers;
 
 
-//import lombok.Builder;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 import ocheresh.swingy.model.arifacts.Armor;
 import ocheresh.swingy.model.arifacts.Helm;
 import ocheresh.swingy.model.arifacts.Weapon;
-import ocheresh.swingy.model.arifacts.WeaponType;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
-//@Builder
 @Getter
 @Setter
 public class SuperHero extends Character {
@@ -21,10 +21,17 @@ public class SuperHero extends Character {
     @NonNull
     private Helm helm;
 
+    @Size(min = 1, max = 250, message = "Name must be between 1 and 250 characters")
     String name;
     EnumSuperHero enumSuperHero;
+    @Min(value = 0, message = "Level should not be less than 0")
+    @Max(value = 6, message = "Level should not be greater than 6")
     int level;
+    @Min(value = 0, message = "Experience should not be less than 0")
+    @Max(value = 200000, message = "Experience should not be greater than 200000")
     int experience;
+    @Min(value = 0, message = "Hitpoints should not be less than 0")
+    @Max(value = 100, message = "Hitpoints should not be greater than 100")
     int hit_points;
 
     @Override
