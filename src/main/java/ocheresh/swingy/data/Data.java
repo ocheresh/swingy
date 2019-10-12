@@ -24,8 +24,6 @@ public class Data {
         {
             Class.forName("org.sqlite.JDBC");
             co = DriverManager.getConnection("jdbc:sqlite:Heroes.db");
-//            System.out.println("Good.");
-
             statmt = co.createStatement();
             resSet = statmt.executeQuery("SELECT * FROM heroes");
         }
@@ -47,10 +45,28 @@ public class Data {
             statement.setObject(6, hero.getArmor().getName());
             statement.setObject(7, hero.getHelm().getName());
             statement.executeUpdate();
-//            System.out.println("add new hero");
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static int size()
+    {
+        int t = 0;
+        try {
+            statmt = co.createStatement();
+            resSet = statmt.executeQuery("SELECT * FROM heroes");
+
+            while(resSet.next())
+            {
+                t++;
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return (t);
     }
 
     public static void deleteSHero(String id) {
@@ -152,7 +168,6 @@ public class Data {
                 System.out.println("Name: " + key + " \n" + map.get(key));
             }
             System.out.println();
-//            System.out.println("Таблица выведена");
         }
         catch (Exception e)
         {
@@ -166,8 +181,6 @@ public class Data {
             co.close();
             statmt.close();
             resSet.close();
-
-//            System.out.println("Соединения закрыты");
         }
         catch (Exception e)
         {

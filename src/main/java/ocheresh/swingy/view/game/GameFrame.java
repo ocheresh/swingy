@@ -171,6 +171,7 @@ public class GameFrame extends JFrame implements MainGame {
         move_info.setText(gamecontroller.getGame().getInfo_of_move());
         if (gamecontroller.getGame().getEnd_game() == true) {
             JOptionPane.showMessageDialog(this, "End game", "Inform", JOptionPane.DEFAULT_OPTION);
+            Data.deleteSHero(gamecontroller.getGame().getSuperHero().getName());
             Data.addSHero(gamecontroller.getGame().getSuperHero()); //добавляет героя без проблем
             gamecontroller.end_game();
         }

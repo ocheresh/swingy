@@ -16,12 +16,10 @@ public class GameConsole extends ConsloeView implements MainGame{
 
     private GameController gamecontroller;
     private boolean STOP = false;
-//    private Scanner sc;
 
     public GameConsole() {
         gamecontroller = new GameController(this);
 
-        System.out.println("Not new line!!!!");
         new_window();
         while (gamecontroller.getGame().getEnd_game() == false && STOP == false)
             choise();
@@ -31,7 +29,7 @@ public class GameConsole extends ConsloeView implements MainGame{
     public void new_window()
     {
         clearScreen();
-        System.out.println("Welcome to GameConsole!!! new winwow");
+        System.out.println("Welcome to GameConsole!!!");
         System.out.println(gamecontroller.getGame().getInfo_of_hero());
         gamecontroller.getGame().print_map();
         System.out.println(gamecontroller.getGame().getInfo_of_game());
@@ -39,43 +37,33 @@ public class GameConsole extends ConsloeView implements MainGame{
 
     public void inform_player()
     {
-//        if (sc == null)
-//            sc = new Scanner(System.in);
         System.out.println("Please enter something:");
-       ScanInfo.getSc().nextLine();
+        ScanInfo.getSc().nextLine();
     }
 
     public void choise()
     {
         new_window();
-//        ScanInfo.connect_scan();
         System.out.println("Please enter |NORTH|,|SOUTH|,|EAST| or |WEST|: (Also you can enter |CHEAT| or |SWITCH|)");
-//        if (sc == null)
-//            sc = new Scanner(System.in);
         String str = ScanInfo.getSc().nextLine();
         if ((str.equalsIgnoreCase("NORTH")) || (str.equalsIgnoreCase("SOUTH"))
                 || (str.equalsIgnoreCase("EAST")) || (str.equalsIgnoreCase("WEST")))
-        {
             gamecontroller.move_operations(str);
-        }
         else if (str.equalsIgnoreCase("CHEAT"))
             gamecontroller.cheat_pressed();
-        else if (str.equalsIgnoreCase("SWITCH")) {
+        else if (str.equalsIgnoreCase("SWITCH"))
             gamecontroller.switchpressed();
-        }
         else
             {
-            System.out.println("Somethig enter wrong in choise. Please repeat your choise.");
-            ScanInfo.getNextLine();
-            choise();
+                System.out.println("Somethig enter wrong in choise. Please repeat your choise.");
+                ScanInfo.getNextLine();
+                choise();
             }
     }
 
     public void choise_second()
     {
         System.out.println("Please enter |FIGHT| or |RUN|: (Also you can enter |SWITCH|)");
-//        if (sc == null)
-//            sc = new Scanner(System.in);
         String str = ScanInfo.getSc().nextLine();
         if (str.equalsIgnoreCase("FIGHT"))
         {
@@ -109,6 +97,7 @@ public class GameConsole extends ConsloeView implements MainGame{
         if (gamecontroller.getGame().getEnd_game() == true) {
             clearScreen();
             System.out.println("You win. Stats of hero save.");
+            Data.deleteSHero(gamecontroller.getGame().getSuperHero().getName());
             Data.addSHero(gamecontroller.getGame().getSuperHero()); //добавляет героя без проблем
             inform_player();
             gamecontroller.end_game();
@@ -123,9 +112,8 @@ public class GameConsole extends ConsloeView implements MainGame{
             new_window();
             System.out.println(gamecontroller.getGame().getInfo_of_move());
             System.out.println("You lose the fight");
-            if (gamecontroller.getGame().getEnd_game() == true) {
+            if (gamecontroller.getGame().getEnd_game() == true)
                 System.out.println("End the game...");
-            }
             inform_player();
             gamecontroller.end_game();
         }
