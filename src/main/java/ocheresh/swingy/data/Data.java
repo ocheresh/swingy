@@ -21,6 +21,15 @@ public class Data {
             Class.forName("org.sqlite.JDBC");
             co = DriverManager.getConnection("jdbc:sqlite:Heroes.db");
             statmt = co.createStatement();
+            String sql = "CREATE TABLE IF NOT EXISTS heroes " +
+                    "(name varchar(255)," +
+                    " class varchar(255), " +
+                    " level int, " +
+                    " experience int, " +
+                    " weapon varchar(255), " +
+                    " armor varchar(255), " +
+                    " helm varchar(255))";
+            statmt.executeUpdate(sql);
             resSet = statmt.executeQuery("SELECT * FROM heroes");
         }
         catch (Exception e)
@@ -28,6 +37,7 @@ public class Data {
             System.out.println("Error: " + e.getMessage());
         }
     }
+
 
     public static void addSHero(@NonNull SuperHero hero) {
         try (PreparedStatement statement = co.prepareStatement(
