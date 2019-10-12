@@ -156,6 +156,7 @@ public class GameFrame extends JFrame implements MainGame {
             butFight.setEnabled(true);
             butRun.setEnabled(true);
             mov.setEnabled(false);
+            butSwitch.setEnabled(false);
             gamecontroller.getGame().setChecks_buton(true);
         }
         gamecontroller.getGame().print_map();
@@ -190,6 +191,7 @@ public class GameFrame extends JFrame implements MainGame {
             butFight.setEnabled(false);
             butRun.setEnabled(false);
             mov.setEnabled(true);
+            butSwitch.setEnabled(true);
             gamecontroller.getGame().print_map();
             game_info.setText(gamecontroller.getGame().getInfo_of_game());
             move_info.setText(gamecontroller.getGame().getInfo_of_move());
@@ -206,6 +208,7 @@ public class GameFrame extends JFrame implements MainGame {
         butFight.setEnabled(false);
         butRun.setEnabled(false);
         mov.setEnabled(true);
+        butSwitch.setEnabled(true);
         gamecontroller.getGame().print_map();
         game_info.setText(gamecontroller.getGame().getInfo_of_game());
         move_info.setText(gamecontroller.getGame().getInfo_of_move());

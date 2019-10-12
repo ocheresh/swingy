@@ -37,7 +37,7 @@ public class GameConsole extends ConsloeView implements MainGame{
 
     public void inform_player()
     {
-        System.out.println("Please enter something:");
+        System.out.println("Please enter something to continue:");
         ScanInfo.getSc().nextLine();
     }
 
@@ -63,7 +63,7 @@ public class GameConsole extends ConsloeView implements MainGame{
 
     public void choise_second()
     {
-        System.out.println("Please enter |FIGHT| or |RUN|: (Also you can enter |SWITCH|)");
+        System.out.println("Please enter |FIGHT| or |RUN|: ");
         String str = ScanInfo.getSc().nextLine();
         if (str.equalsIgnoreCase("FIGHT"))
         {
@@ -71,8 +71,6 @@ public class GameConsole extends ConsloeView implements MainGame{
         }
         else if (str.equalsIgnoreCase("RUN"))
             gamecontroller.runpressed();
-        else if (str.equalsIgnoreCase("SWITCH"))
-            gamecontroller.switchpressed();
         else{
             System.out.println("Somethig enter wrong in choise. Please repeat your choise.");
             new_window();
@@ -151,14 +149,11 @@ public class GameConsole extends ConsloeView implements MainGame{
 
     @Override
     public void add_artifac_pres() {
-//        clearScreen();
         int luck = (int)(Math.random() * 10 % 2);
         if (luck == 0)
         {
             while (luck == 0) {
                 System.out.println("Would you like to take artifact? (Enter |Yes| or |No|)");
-//                if (sc == null)
-//                    sc = new Scanner(System.in);
                 String str = ScanInfo.getNextLine();
                 if (str.equalsIgnoreCase("Yes")) {
                     gamecontroller.getGame().add_artifacts();

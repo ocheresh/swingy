@@ -10,7 +10,6 @@ public class Runner {
 
     public static void main(String[] args)
     {
-
         if ((args.length != 1) || (!(args[0].equals("gui")) && !(args[0].equals("console"))))
         {
             System.out.println("You must enter gui or console");
