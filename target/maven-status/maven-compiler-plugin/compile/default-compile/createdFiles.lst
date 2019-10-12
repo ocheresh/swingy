@@ -30,6 +30,7 @@ ocheresh/swingy/view/select/SelectFrame$4.class
 ocheresh/swingy/view/game/GameFrame$4.class
 ocheresh/swingy/model/arifacts/Weapon.class
 ocheresh/swingy/controller/GameController.class
+ocheresh/swingy/data/ScanInfo.class
 ocheresh/swingy/view/create/CreateFrame$5.class
 ocheresh/swingy/model/characthers/Character.class
 ocheresh/swingy/model/characthers/Villain$Builder.class

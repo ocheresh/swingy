@@ -237,13 +237,14 @@ public class Game {
         if ((position[0] == 0) || (position[0] == (size_square - 1))) {
 //            System.out.println("End Game!!!1");
             hero.setExperience(hero.getExperience() + 500);
+            incr_level();
             End_game = true;
             return (false); }
         else if ((position[1] == 0) || (position[1] == (size_square - 1))) {
             info_of_game += "\n position[0][1]" + Integer.toString(position[0]) + "  " + Integer.toString(position[1]);
             End_game = true;
             hero.setExperience(hero.getExperience() + 500);
-//            System.out.println("End Game!!!2");
+            incr_level();
             return (false);
         }
         return (true);

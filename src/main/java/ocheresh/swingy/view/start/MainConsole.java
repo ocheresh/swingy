@@ -2,6 +2,7 @@ package ocheresh.swingy.view.start;
 
 import ocheresh.swingy.controller.MainController;
 import ocheresh.swingy.data.Data;
+import ocheresh.swingy.data.ScanInfo;
 import ocheresh.swingy.view.ConsloeView;
 import ocheresh.swingy.view.create.CreateConsole;
 import ocheresh.swingy.view.game.MainGame;
@@ -12,7 +13,6 @@ import java.util.Scanner;
 
 public class MainConsole extends ConsloeView implements MainView {
 
-    private Scanner sc;
     private MainController mainController;
 
     public MainConsole()
@@ -29,8 +29,7 @@ public class MainConsole extends ConsloeView implements MainView {
 
     public void read()
     {
-        sc = new Scanner(System.in);
-        String str = sc.nextLine();
+        String str = ScanInfo.getSc().nextLine();
 
         if (str.equalsIgnoreCase("Select"))
         {

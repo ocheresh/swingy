@@ -43,6 +43,7 @@ public class SelectFrame extends JFrame implements MainSelect{
         arherostas = new JTextArea(25, 20);
         arherostas.setEditable(false);
         butSelect = new JButton("Select");
+        butSelect.setEnabled(false);
         butBack = new JButton("Back");
         butSwitch = new JButton("Switch");
 //        scrollPane = new JScrollPane(arherostas);
@@ -97,6 +98,7 @@ public class SelectFrame extends JFrame implements MainSelect{
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 arherostas.setText(Data.getinfo().get(aravailb.getSelectedValue().toString()));
+                butSelect.setEnabled(true);
             }
         });
 

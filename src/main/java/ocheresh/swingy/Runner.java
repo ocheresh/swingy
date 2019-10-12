@@ -1,6 +1,7 @@
 package ocheresh.swingy;
 
 import ocheresh.swingy.data.Data;
+import ocheresh.swingy.data.ScanInfo;
 import ocheresh.swingy.model.characthers.CharacthersFactory;
 import ocheresh.swingy.model.characthers.EnumSuperHero;
 import ocheresh.swingy.model.characthers.SuperHero;
@@ -10,6 +11,7 @@ import ocheresh.swingy.view.start.MainConsole;
 import ocheresh.swingy.view.start.MainFrame;
 
 import javax.swing.*;
+import java.util.Scanner;
 
 
 public class Runner {
@@ -23,6 +25,7 @@ public class Runner {
     public static void main(String[] args)
     {
         Data.connect();
+        ScanInfo.connect_scan();
 
         if (args[0].contentEquals("gui")) {
             new MainFrame();

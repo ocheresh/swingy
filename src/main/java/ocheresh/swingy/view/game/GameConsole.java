@@ -2,6 +2,7 @@ package ocheresh.swingy.view.game;
 
 import ocheresh.swingy.controller.GameController;
 import ocheresh.swingy.data.Data;
+import ocheresh.swingy.data.ScanInfo;
 import ocheresh.swingy.view.ConsloeView;
 
 import javax.sound.sampled.AudioInputStream;
@@ -14,13 +15,15 @@ import java.util.Scanner;
 public class GameConsole extends ConsloeView implements MainGame{
 
     private GameController gamecontroller;
-    private Scanner sc;
+    private boolean STOP = false;
+//    private Scanner sc;
 
     public GameConsole() {
         gamecontroller = new GameController(this);
 
+        System.out.println("Not new line!!!!");
         new_window();
-        while (gamecontroller.getGame().getEnd_game() == false)
+        while (gamecontroller.getGame().getEnd_game() == false && STOP == false)
             choise();
 
     }
@@ -28,7 +31,7 @@ public class GameConsole extends ConsloeView implements MainGame{
     public void new_window()
     {
         clearScreen();
-        System.out.println("Welcome to GameConsole!!!");
+        System.out.println("Welcome to GameConsole!!! new winwow");
         System.out.println(gamecontroller.getGame().getInfo_of_hero());
         gamecontroller.getGame().print_map();
         System.out.println(gamecontroller.getGame().getInfo_of_game());
@@ -36,19 +39,20 @@ public class GameConsole extends ConsloeView implements MainGame{
 
     public void inform_player()
     {
-        if (sc == null)
-            sc = new Scanner(System.in);
+//        if (sc == null)
+//            sc = new Scanner(System.in);
         System.out.println("Please enter something:");
-        String str = sc.nextLine();
+       ScanInfo.getSc().nextLine();
     }
 
     public void choise()
     {
         new_window();
+//        ScanInfo.connect_scan();
         System.out.println("Please enter |NORTH|,|SOUTH|,|EAST| or |WEST|: (Also you can enter |CHEAT| or |SWITCH|)");
-        if (sc == null)
-            sc = new Scanner(System.in);
-        String str = sc.nextLine();
+//        if (sc == null)
+//            sc = new Scanner(System.in);
+        String str = ScanInfo.getSc().nextLine();
         if ((str.equalsIgnoreCase("NORTH")) || (str.equalsIgnoreCase("SOUTH"))
                 || (str.equalsIgnoreCase("EAST")) || (str.equalsIgnoreCase("WEST")))
         {
@@ -56,20 +60,23 @@ public class GameConsole extends ConsloeView implements MainGame{
         }
         else if (str.equalsIgnoreCase("CHEAT"))
             gamecontroller.cheat_pressed();
-        else if (str.equalsIgnoreCase("SWITCH"))
+        else if (str.equalsIgnoreCase("SWITCH")) {
             gamecontroller.switchpressed();
-        else{
-            System.out.println("Somethig enter wrong in choise. Please repeat your choise.");
-            choise();
         }
+        else
+            {
+            System.out.println("Somethig enter wrong in choise. Please repeat your choise.");
+            ScanInfo.getNextLine();
+            choise();
+            }
     }
 
     public void choise_second()
     {
         System.out.println("Please enter |FIGHT| or |RUN|: (Also you can enter |SWITCH|)");
-        if (sc == null)
-            sc = new Scanner(System.in);
-        String str = sc.nextLine();
+//        if (sc == null)
+//            sc = new Scanner(System.in);
+        String str = ScanInfo.getSc().nextLine();
         if (str.equalsIgnoreCase("FIGHT"))
         {
             gamecontroller.fightpressed();
@@ -86,7 +93,9 @@ public class GameConsole extends ConsloeView implements MainGame{
     }
 
     @Override
-    public void SwitchPressed() { new GameFrame();
+    public void SwitchPressed() {
+        STOP = true;
+        new GameFrame();
     }
 
     @Override
@@ -160,9 +169,9 @@ public class GameConsole extends ConsloeView implements MainGame{
         {
             while (luck == 0) {
                 System.out.println("Would you like to take artifact? (Enter |Yes| or |No|)");
-                if (sc == null)
-                    sc = new Scanner(System.in);
-                String str = sc.nextLine();
+//                if (sc == null)
+//                    sc = new Scanner(System.in);
+                String str = ScanInfo.getNextLine();
                 if (str.equalsIgnoreCase("Yes")) {
                     gamecontroller.getGame().add_artifacts();
                     luck = 1;
@@ -182,6 +191,7 @@ public class GameConsole extends ConsloeView implements MainGame{
     @Override
     public void end_game() {
         Data.closeDB();
+        ScanInfo.close();
         System.exit(0);
     }
 

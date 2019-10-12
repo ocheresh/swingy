@@ -3,6 +3,7 @@ package ocheresh.swingy.view.game;
 import lombok.NonNull;
 import ocheresh.swingy.controller.GameController;
 import ocheresh.swingy.data.Data;
+import ocheresh.swingy.data.ScanInfo;
 import ocheresh.swingy.model.Game;
 import ocheresh.swingy.model.characthers.SuperHero;
 
@@ -150,6 +151,7 @@ public class GameFrame extends JFrame implements MainGame {
     public void SwitchPressed()
     {
         this.setVisible(false);
+        this.dispose();
         new GameConsole();
     }
 
@@ -240,6 +242,7 @@ public class GameFrame extends JFrame implements MainGame {
     @Override
     public void end_game() {
         Data.closeDB();
+        ScanInfo.close();
         this.dispose();
         System.exit(0);
     }

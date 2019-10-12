@@ -2,6 +2,7 @@ package ocheresh.swingy.view.select;
 
 import ocheresh.swingy.controller.SelectController;
 import ocheresh.swingy.data.Data;
+import ocheresh.swingy.data.ScanInfo;
 import ocheresh.swingy.model.Game;
 import ocheresh.swingy.view.ConsloeView;
 import ocheresh.swingy.view.game.GameConsole;
@@ -13,7 +14,7 @@ import java.util.Scanner;
 public class SelectConsole extends ConsloeView implements MainSelect  {
 
     private String name;
-    private Scanner sc;
+//    private Scanner sc;
     private SelectController selectController;
     private Game game;
 
@@ -31,10 +32,10 @@ public class SelectConsole extends ConsloeView implements MainSelect  {
         clearScreen();
 
         Data.print();
-        if (sc == null)
-            sc = new Scanner(System.in);
+//        if (sc == null)
+//            sc = new Scanner(System.in);
         System.out.println("Please enter name of new hero:");
-        String str = sc.nextLine();
+        String str = ScanInfo.getSc().nextLine();
 
         if (str.length() > 0)
         {
@@ -53,9 +54,9 @@ public class SelectConsole extends ConsloeView implements MainSelect  {
     {
         clearScreen();
         System.out.println("Please enter |Select|,|Back| or |Switch|:");
-        if (sc == null)
-            sc = new Scanner(System.in);
-        String str = sc.nextLine();
+//        if (sc == null)
+//            sc = new Scanner(System.in);
+        String str = ScanInfo.getSc().nextLine();
         if (str.equalsIgnoreCase("Select"))
         {
             selectController.select();
