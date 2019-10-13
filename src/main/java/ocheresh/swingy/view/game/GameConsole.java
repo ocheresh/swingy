@@ -104,7 +104,6 @@ public class GameConsole extends ConsloeView implements MainGame{
 
     @Override
     public void fightpressed() {
-        sound_on("./src/main/java/sounds/rage_of_blades-Blaga_Saun-1763516257.wav");
         if (gamecontroller.getGame().fight() == false)
         {
             new_window();
@@ -134,7 +133,6 @@ public class GameConsole extends ConsloeView implements MainGame{
 
     @Override
     public void runPressed() {
-        sound_on("./src/main/java/sounds/Run Forrest run.wav");
         gamecontroller.getGame().run();
         new_window();
         System.out.println(gamecontroller.getGame().getInfo_of_move());
@@ -182,26 +180,10 @@ public class GameConsole extends ConsloeView implements MainGame{
     public void cheat_pressed() {
         clearScreen();
         System.out.println("Cheat on. Good boy or girl.");
-        sound_on("./src/main/java/sounds/Male Laugh Short-SoundBible.com-1728242766.wav");
         gamecontroller.getGame().print_map_cheat();
         System.out.println(gamecontroller.getGame().getInfo_of_game());
         inform_player();
         choise();
 
-    }
-
-    public void sound_on(String soundName)
-    {
-        try
-        {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            clip.start();
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
     }
 }

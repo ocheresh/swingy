@@ -9,11 +9,10 @@ import ocheresh.swingy.view.ConsloeView;
 import ocheresh.swingy.view.game.GameConsole;
 import ocheresh.swingy.view.start.MainConsole;
 
-import java.util.Scanner;
 
 public class CreateConsole extends ConsloeView implements MainCreate {
 
-//    private Scanner sc = null;
+
     private CreateController createController;
     private Game game;
     private String name;
@@ -32,8 +31,6 @@ public class CreateConsole extends ConsloeView implements MainCreate {
     public void enter_name()
     {
         clearScreen();
-//        if (sc == null)
-//            sc = new Scanner(System.in);
         System.out.println("Please enter name of new hero:(max size 250 characters)");
         String str = ScanInfo.getSc().nextLine();
 
@@ -49,8 +46,6 @@ public class CreateConsole extends ConsloeView implements MainCreate {
 
     public void create_hero()
     {
-//        if (sc == null)
-//            sc = new Scanner(System.in);
         clearScreen();
         System.out.println("You can choose:");
         System.out.print((
@@ -60,8 +55,6 @@ public class CreateConsole extends ConsloeView implements MainCreate {
                         + "Attack: 10        Attack: 15\n"
                         + "Defence: 100      Defence: 80\n"));
 
-//        if (sc == null)
-//            sc = new Scanner(System.in);
         System.out.println("Please enter class of new hero:");
         String str = ScanInfo.getSc().nextLine();
         if (str.equalsIgnoreCase("KNIGHT"))
@@ -78,8 +71,6 @@ public class CreateConsole extends ConsloeView implements MainCreate {
     {
         clearScreen();
         System.out.println("Please enter |Create|, |Switch| or |Back|:");
-//        if (sc == null)
-//            sc = new Scanner(System.in);
         String str = ScanInfo.getSc().nextLine();
         if (str.equalsIgnoreCase("Create"))
         {

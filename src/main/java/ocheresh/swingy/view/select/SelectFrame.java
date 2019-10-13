@@ -27,8 +27,6 @@ public class SelectFrame extends JFrame implements MainSelect{
     private JButton butBack;
     private JButton butSwitch;
     private Game game;
-//    private JScrollPane scrollPane;
-
     private SelectController selectController;
 
     public SelectFrame()
@@ -46,7 +44,6 @@ public class SelectFrame extends JFrame implements MainSelect{
         butSelect.setEnabled(false);
         butBack = new JButton("Back");
         butSwitch = new JButton("Switch");
-//        scrollPane = new JScrollPane(arherostas);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Map<String, String> map = Data.getinfo();
@@ -114,10 +111,7 @@ public class SelectFrame extends JFrame implements MainSelect{
     @Override
     public void select_press()
     {
-//        Data.getinfo().get(aravailb.getSelectedValue().toString());
-
         this.setVisible(false);
-//        System.out.println("Select enter\n");
         game = new Game();
         Game.setSuperHero(Data.getSuperHero(aravailb.getSelectedValue().toString()));
         new GameFrame();

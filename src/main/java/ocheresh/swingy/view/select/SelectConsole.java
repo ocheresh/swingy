@@ -6,15 +6,12 @@ import ocheresh.swingy.data.ScanInfo;
 import ocheresh.swingy.model.Game;
 import ocheresh.swingy.view.ConsloeView;
 import ocheresh.swingy.view.game.GameConsole;
-import ocheresh.swingy.view.game.GameFrame;
 import ocheresh.swingy.view.start.MainConsole;
 
-import java.util.Scanner;
 
 public class SelectConsole extends ConsloeView implements MainSelect  {
 
     private String name;
-//    private Scanner sc;
     private SelectController selectController;
     private Game game;
 
@@ -22,8 +19,14 @@ public class SelectConsole extends ConsloeView implements MainSelect  {
     {
         clearScreen();
         selectController = new SelectController(this);
-        enter_name();
-        choise();
+        if (Data.size() != 0) {
+            enter_name();
+            choise();
+        }
+        else
+        {
+            no_heroes();
+        }
 
     }
 
@@ -32,8 +35,6 @@ public class SelectConsole extends ConsloeView implements MainSelect  {
         clearScreen();
 
         Data.print();
-//        if (sc == null)
-//            sc = new Scanner(System.in);
         System.out.println("Please enter name of new hero:");
         String str = ScanInfo.getSc().nextLine();
 
@@ -50,12 +51,26 @@ public class SelectConsole extends ConsloeView implements MainSelect  {
         }
     }
 
+    public void no_heroes()
+    {
+        clearScreen();
+        System.out.println("No heroes in database. Please enter back and createt hero.");
+        System.out.println("Please enter |Back|:");
+        if (ScanInfo.getSc().nextLine().equalsIgnoreCase("Back"))
+        {
+            selectController.press_back();
+        }
+        else
+        {
+            no_heroes();
+        }
+
+    }
+
     public void choise()
     {
         clearScreen();
         System.out.println("Please enter |Select|,|Back| or |Switch|:");
-//        if (sc == null)
-//            sc = new Scanner(System.in);
         String str = ScanInfo.getSc().nextLine();
         if (str.equalsIgnoreCase("Select"))
         {

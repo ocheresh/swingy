@@ -85,7 +85,6 @@ public class GameFrame extends JFrame implements MainGame {
 
         butFight.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                sound_on("./src/main/java/sounds/rage_of_blades-Blaga_Saun-1763516257.wav");
                 sleep_on(3);
                 gamecontroller.fightpressed();
                 toggleButton.setSelected(false);
@@ -95,7 +94,6 @@ public class GameFrame extends JFrame implements MainGame {
 
         butRun.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                sound_on("./src/main/java/sounds/Run Forrest run.wav");
                 sleep_on(2);
                 gamecontroller.runpressed();
                 toggleButton.setSelected(false);
@@ -247,24 +245,8 @@ public class GameFrame extends JFrame implements MainGame {
         gamecontroller.getGame().print_map_cheat();
         move_info.setText(gamecontroller.getGame().getInfo_of_move());
         gamecontroller.getGame().setInfo_of_move("");
-        sound_on("./src/main/java/sounds/Male Laugh Short-SoundBible.com-1728242766.wav");
     }
 
-
-    public void sound_on(String soundName)
-    {
-        try
-        {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            clip.start();
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
-    }
 
     public void sleep_on(int seconds)
     {
